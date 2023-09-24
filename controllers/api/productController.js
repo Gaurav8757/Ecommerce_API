@@ -37,7 +37,7 @@ const Product = require('../../models/products');
 module.exports.listProducts = async (req, res) => {
   try {
     // Fetching all the Products
-    const products = await Product.find({}, 'id name quantity'); // Only select the required fields
+    const products = await Product.find({}); // Only select the required fields
 
     // Formatting the data for a clearer understanding
     const formattedProducts = await products.map((product) => ({
@@ -47,7 +47,7 @@ module.exports.listProducts = async (req, res) => {
     }));
 
     // Return the formatted data on success
-    return res.status(200).json({
+    return res.json({
       data: {
         Products: formattedProducts,
       },
