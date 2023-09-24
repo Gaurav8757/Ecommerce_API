@@ -24,7 +24,7 @@ module.exports.listProducts =  async(req,res)=>{
     } catch (err){
         
         // To view error
-        console.log("****",err);
+        // console.log("****",err);
         
         //Throws error on failure
         return res.status(500).json({
@@ -101,7 +101,7 @@ module.exports.delete = async function(req,res){
     }catch(err){
         
         // To view error
-        console.log("****",err);
+        // console.log("****",err);
         
         //Throws error on failure
         return res.status(500).json({
@@ -168,7 +168,7 @@ module.exports.updateQuantity = async function(req,res){
     }catch(err){
         
         // To view error
-        console.log("****",err);
+        // console.log("****",err);
         
         //Throws error on failure
         return res.status(500).json({
