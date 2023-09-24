@@ -40,7 +40,7 @@ module.exports.listProducts = async (req, res) => {
     const products = await Product.find({}, 'id name quantity'); // Only select the required fields
 
     // Formatting the data for a clearer understanding
-    const formattedProducts = products.map((product) => ({
+    const formattedProducts = await products.map((product) => ({
       id: product.id,
       name: product.name,
       quantity: product.quantity,
@@ -58,7 +58,7 @@ module.exports.listProducts = async (req, res) => {
     console.error(err);
 
     // Throw an error on failure
-    return res.status(500).json({
+    return res.status(501).json({
       message: "Error in fetching products",
     });
   }
