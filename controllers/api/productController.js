@@ -32,7 +32,7 @@ const Product = require('../../models/products');
 //         });
 //     }
 // };
-const Product = require('./Product'); // Import the Product model
+// Import the Product model
 
 module.exports.listProducts = async (req, res) => {
   try {
