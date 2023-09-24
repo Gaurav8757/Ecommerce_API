@@ -58,7 +58,7 @@ module.exports.listProducts = async (req, res) => {
     console.error(err);
 
     // Throw an error on failure
-    return res.status(501).json({
+    return res.json({
       message: "Error in fetching products",
     });
   }
