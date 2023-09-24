@@ -2,35 +2,66 @@
 // Importing the Product model
 const Product = require('../../models/products');
 // Function to view all the products available in the inventory
-module.exports.listProducts =  async(req,res)=>{
-    try{
-        // Fetching all the Products
-        let product = await Product.find({});
-        // Formatting the data to clear understanding
-        const formattedProducts = product.map((product,index) => ({
-            id: product.id,
-            name: product.name,
-            quantity: product.quantity
-        }));
-        // return the formattted data on success
-        return res.status(200).json({
+// module.exports.listProducts =  async(req,res)=>{
+//     try{
+//         // Fetching all the Products
+//         let product = await Product.find({});
+//         // Formatting the data to clear understanding
+//         const formattedProducts = product.map((product,index) => ({
+//             id: product.id,
+//             name: product.name,
+//             quantity: product.quantity
+//         }));
+//         // return the formattted data on success
+//         return res.status(200).json({
             
-            data : {
-                Products : formattedProducts,
-            },
-            message: "These are the Products in Inventory"
-        });
+//             data : {
+//                 Products : formattedProducts,
+//             },
+//             message: "These are the Products in Inventory"
+//         });
         
-    } catch (err){
+//     } catch (err){
         
-        // To view error
-        // console.log("****",err);
+//         // To view error
+//         // console.log("****",err);
         
-        //Throws error on failure
-        return res.status(500).json({
-            message : "Error in fetching products"
-        });
-    }
+//         //Throws error on failure
+//         return res.status(500).json({
+//             message : "Error in fetching products"
+//         });
+//     }
+// };
+const Product = require('./Product'); // Import the Product model
+
+module.exports.listProducts = async (req, res) => {
+  try {
+    // Fetching all the Products
+    const products = await Product.find({}, 'id name quantity'); // Only select the required fields
+
+    // Formatting the data for a clearer understanding
+    const formattedProducts = products.map((product) => ({
+      id: product.id,
+      name: product.name,
+      quantity: product.quantity,
+    }));
+
+    // Return the formatted data on success
+    return res.status(200).json({
+      data: {
+        Products: formattedProducts,
+      },
+      message: "These are the Products in Inventory",
+    });
+  } catch (err) {
+    // Log the error for debugging purposes
+    console.error(err);
+
+    // Throw an error on failure
+    return res.status(500).json({
+      message: "Error in fetching products",
+    });
+  }
 };
 
 
