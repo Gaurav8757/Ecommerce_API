@@ -47,7 +47,7 @@ module.exports.listProducts = async (req, res) => {
     }));
 
     // Return the formatted data on success
-    return res.status(200).json({
+     res.status(200).json({
       data: {
         Products: formattedProducts,
       },
@@ -56,9 +56,7 @@ module.exports.listProducts = async (req, res) => {
   } catch (err) {
     // Log the error for debugging purposes
     console.error(err);
-
-    // Throw an error on failure
-    return res.status(501).json({
+     res.status(501).json({
       message: "Error in fetching products",
     });
   }

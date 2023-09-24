@@ -2,10 +2,13 @@
 const express = require('express');
 //Importing the Product controller to redirect to perform the desired function
 const productController = require('../../controllers/api/productController');
+// const homeController = require("../../controllers/homeController")
 // console.log(productController);
 // Creating a router to redirect requests
 const router = express.Router();
-// Shows All the Products
+
+// router.get('/product', homeController.home);
+// Shows All the Products/
 router.get('/lists',productController.listProducts);
 console.log(productController.listProducts());
 // Create  a new Product

@@ -7,6 +7,7 @@ const app = express();
 const port = 8000;
 
 //Enable us to pass data through URL
+app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 //Routes
