@@ -18,7 +18,7 @@ router.post('/create',productController.create);
 router.delete('/:id',productController.delete);
 
 // Updates a Product with the given id to the given ammount
-router.post('/:id/update_quantity',productController.updateQuantity);
+router.post('/update_quantity/:id',productController.updateQuantity);
 
 // Exporting the router
 module.exports = router;
