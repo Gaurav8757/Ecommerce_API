@@ -10,7 +10,7 @@ const router = express.Router();
 // router.get('/product', homeController.home);
 // Shows All the Products/
 router.get('/lists',productController.listProducts);
-console.log(productController.listProducts());
+// console.log(productController.listProducts());
 // Create  a new Product
 router.post('/create',productController.create);
 

@@ -13,6 +13,9 @@ app.use(express.urlencoded({extended:true}));
 //Routes
 app.use('/',require('./routes/index'));
 
-app.listen(port,()=>{
+app.listen(port,(err)=>{
+    if(err) {
+        console.log(`Server not running on port:  ${port}`);
+    }
     console.log(`Server up and running on port:  ${port}`);
 });
